@@ -1,3 +1,4 @@
+import AdminLayOut from "../layout/AdminLayOut";
 import LoginLayOut from "../layout/LoginLayOut";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -8,13 +9,11 @@ const publicRoutes = [
     component: Login,
     layout: LoginLayOut,
   },
-];
-
-const privateRoutes = [
   {
     path: "/",
     component: Home,
+    layout: AdminLayOut,
   },
 ];
 
-export { publicRoutes, privateRoutes };
+export { publicRoutes };
