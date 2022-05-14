@@ -31,8 +31,8 @@ const categories = [
 
 const Sidebar = () => {
   return (
-    <div className='shadowRight pt-3 pb-4 px-3 z-50'>
-      <h2 className='text-blue-color text-2xl text-center mt-2'>DStore</h2>
+    <div className='shadowRight pt-3 pb-4 z-50'>
+      <h2 className='text-blue-color text-2xl text-center mt-2 px-3'>DStore</h2>
       <div className='mt-5'>
         {categories.map((category, index) => (
           <ItemSideBar key={index} category={category} />

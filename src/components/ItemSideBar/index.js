@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const ItemSideBar = ({ category }) => {
   return (
-    <div className='flex items-center py-[10px]'>
+    <div className='flex items-center py-[10px] cursor-pointer hover:bg-main-color px-3 transition-all'>
       <NavLink
         to={category.route}
         activeclassname='active'

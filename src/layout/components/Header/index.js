@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Header = () => {
   const [userMenu, setUserMenu] = useState(false);
   return (
-    <header className='bg-white'>
+    <header className='bg-white shadowBottom'>
       <div className='widthHeader flex items-center justify-between text-blue-color h-[70px]'>
         <i className='text-xl fa-solid fa-bars'></i>
         <a href='facebook.com/datisekai' target={"_blank"} className='text-xl'>
