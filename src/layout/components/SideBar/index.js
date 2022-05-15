@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import ItemSideBar from "../../../components/ItemSideBar";
+import Overlay from "../../../components/Overlay";
 
 const categories = [
   {
@@ -30,14 +32,27 @@ const categories = [
 ];
 
 const Sidebar = () => {
+  const { text, display } = useSelector((state) => state.sidebar);
   return (
-    <div className='shadowRight pt-3 pb-4 z-50'>
-      <h2 className='text-blue-color text-2xl text-center mt-2 px-3'>DStore</h2>
-      <div className='mt-5'>
-        {categories.map((category, index) => (
-          <ItemSideBar key={index} category={category} />
-        ))}
+    <div className=''>
+      {" "}
+      <div
+        className={`${
+          display ? "block" : "hidden"
+        } md:block fixed bg-white top-0 bottom-0 shadowRight pt-3 pb-4 z-50 ${
+          text ? "w-[150px]" : "w-[70px]"
+        }`}
+      >
+        <h2 className='text-blue-color text-2xl text-center mt-2 px-3'>
+          {text ? "DStore" : "DS"}
+        </h2>
+        <div className='mt-5'>
+          {categories.map((category, index) => (
+            <ItemSideBar key={index} category={category} />
+          ))}
+        </div>
       </div>
+      <Overlay className={`${display ? "block" : "hidden"}`} />
     </div>
   );
 };

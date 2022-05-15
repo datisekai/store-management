@@ -1,11 +1,24 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setDisplay } from "../../../redux/SideBarReducer";
 
 const Header = () => {
   const [userMenu, setUserMenu] = useState(false);
+  const dispatch = useDispatch();
+  const { text } = useSelector((state) => state.sidebar);
   return (
     <header className='bg-white shadowBottom'>
       <div className='widthHeader flex items-center justify-between text-blue-color h-[70px]'>
-        <i className='text-xl fa-solid fa-bars'></i>
+        {/* PC */}
+        <i
+          className='hidden cursor-pointer md:block text-xl fa-solid fa-bars'
+          onClick={() => dispatch(setDisplay({ text: !text }))}
+        ></i>
+        {/* Mobile */}
+        <i
+          className='block md:hidden cursor-pointer text-xl fa-solid fa-bars'
+          onClick={() => dispatch(setDisplay({ display: true }))}
+        ></i>
         <a href='facebook.com/datisekai' target={"_blank"} className='text-xl'>
           <i className='fa-solid fa-at'></i> Datisekai
         </a>
