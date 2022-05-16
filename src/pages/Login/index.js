@@ -1,10 +1,14 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import { scrollTop } from "../../utils/ScrollTop";
 
 const Login = () => {
+  useEffect(() => {
+    scrollTop();
+  }, []);
   const formik = useFormik({
     initialValues: {
       email: "",

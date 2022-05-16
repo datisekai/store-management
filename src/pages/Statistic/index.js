@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { scrollTop } from "../../utils/ScrollTop";
 
 const Statistic = () => {
+  useEffect(() => {
+    scrollTop();
+  }, []);
   return <div>Statistic</div>;
 };
 

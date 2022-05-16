@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BoxStatistic from "../../components/BoxStatistic";
 import {
   Chart as ChartJS,
@@ -11,6 +11,7 @@ import {
   ArcElement,
 } from "chart.js";
 import { Bar, Pie } from "react-chartjs-2";
+import { scrollTop } from "../../utils/ScrollTop";
 
 ChartJS.register(
   CategoryScale,
@@ -44,6 +45,9 @@ const statistics = [
 ];
 
 const Home = () => {
+  useEffect(() => {
+    scrollTop();
+  }, []);
   const options = {
     responsive: true,
     plugins: {

@@ -3,7 +3,7 @@ const categoriesTime = ["Hôm nay", "Hôm qua", "Tuần này", "Tuần trước"
 const FilterTime = () => {
   const [showOption, setShowOption] = useState(false);
   return (
-    <div className='ml-[30px] w-[20%] relative'>
+    <div className='mt-[12px] md:mt-0 ml-[30px] w-full md:w-[25%] lg:w-[20%] relative'>
       <p>Lọc theo thời gian</p>
       <div
         className='relative mt-[10px] flex items-center cursor-pointer'
@@ -20,7 +20,7 @@ const FilterTime = () => {
       <div
         className={`${
           showOption ? "block" : "hidden"
-        } absolute mt-1 bg-white border border-[rgba(128, 128, 128, 0.3)] w-full rounded-[10px] shadowBox pt-[18px] pb-2 select-none`}
+        } absolute mt-1 bg-white border z-30 border-[rgba(128, 128, 128, 0.3)] w-full rounded-[10px] shadowBox pt-[18px] pb-2 select-none`}
       >
         <div className='flex items-center justify-between text-gray-color text-[13px]'>
           <div className='w-[50%] text-center border py-2'>
