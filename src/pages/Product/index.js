@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ContentHandle from "../../components/ContentHandle";
 import PaginationCategory from "../../components/PaginationCategory";
 import FilterProductCategory from "../../components/Filter/FilterProductCategory";
-import FilterProductStatus from "../../components/Product/FilterProductStatus";
+import FilterProductStatus from "../../components/Filter/FilterProductStatus";
 import SearchProduct from "../../components/Filter/SearchProduct";
 import TableProduct from "../../components/Product/TableProduct";
 import { scrollTop } from "../../utils/ScrollTop";
