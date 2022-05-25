@@ -4,8 +4,13 @@ import React, { useEffect } from "react";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { scrollTop } from "../../utils/ScrollTop";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../redux/AuthReducer";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
+  const { loading } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   useEffect(() => {
     scrollTop();
   }, []);
@@ -22,7 +27,14 @@ const Login = () => {
         .required("Required")
         .min(6, "Invalid format. More than 6 character!"),
     }),
+    onSubmit: (values) => {
+      dispatch(loginUser(values));
+    },
   });
+
+  if (localStorage.getItem("token") !== null) {
+    return <Navigate to={"/"} />;
+  }
 
   return (
     <div className='absolute right-[5%] sm:right-[10%] w-[90%] sm:w-[500px] bg-white rounded-lg py-6 px-5 top-[20%]'>
@@ -64,8 +76,9 @@ const Login = () => {
 
         <Button
           className={"mt-4 bg-blue-color text-white hover:bg-blue-700"}
-          label={"Đăng nhập"}
+          label={!loading ? "Đăng nhập" : "Loading..."}
           onSubmit={formik.handleSubmit}
+          disable={loading}
         />
 
         <p className='text-text-color text-sm mt-4'>

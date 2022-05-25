@@ -7,7 +7,7 @@ const FilterProductCategory = () => {
       <select
         name=''
         id=''
-        className='py-2 px-5 rounded-[30px] mt-[10px] w-full outline-none'
+        className='py-2 px-5 rounded-[30px] mt-[10px] w-full outline-none text-[14px]'
       >
         {categoriesTime.map((item, index) => (
           <option key={index}>{item}</option>

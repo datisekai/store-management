@@ -39,7 +39,7 @@ const statistics = [
   {
     label: "Thu nhập",
     image: "benefit.png",
-    quantity: "1.500.000 VND",
+    quantity: 1500000,
     percent: 50,
   },
 ];

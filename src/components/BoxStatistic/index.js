@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from "react-countup";
 
 const BoxStatistic = ({ statistic }) => {
   return (
@@ -11,7 +12,7 @@ const BoxStatistic = ({ statistic }) => {
         />
         <div className='w-full '>
           <p className='text-lg sm:text-xl text-center font-semibold'>
-            {statistic.quantity}
+            <CountUp end={statistic.quantity} duration={1} />
           </p>
           <p className='text-center text-sm sm:text-[16px]'>
             {statistic.label}

@@ -1,5 +1,6 @@
 import AdminLayOut from "../layout/AdminLayOut";
 import LoginLayOut from "../layout/LoginLayOut";
+import PrivateLayOut from "../layout/PrivateLayOut";
 import Category from "../pages/Category";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -13,31 +14,29 @@ const publicRoutes = [
     component: Login,
     layout: LoginLayOut,
   },
+];
+
+const privateRoutes = [
   {
     path: "/",
     component: Home,
-    layout: AdminLayOut,
   },
   {
     path: "/category",
     component: Category,
-    layout: AdminLayOut,
   },
   {
     path: "/product",
     component: Product,
-    layout: AdminLayOut,
   },
   {
     path: "/staff",
     component: Staff,
-    layout: AdminLayOut,
   },
   {
     path: "/statistic",
     component: Statistic,
-    layout: AdminLayOut,
   },
 ];
 
-export { publicRoutes };
+export { publicRoutes, privateRoutes };

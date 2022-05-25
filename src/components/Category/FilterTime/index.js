@@ -12,10 +12,10 @@ const FilterTime = () => {
         <input
           type='text'
           readOnly
-          className='outline-none w-full placeholder:text-[14px] rounded-[30px] px-5 py-2 border'
+          className='outline-none w-full placeholder:text-[14px] placeholder:text-black rounded-[30px] px-5 py-2 border'
           placeholder='Chọn thời gian '
         />
-        <i class='px-3 absolute right-0 text-blue-color text-xl fa-solid fa-circle-chevron-down'></i>
+        <i className='px-3 absolute right-0 text-blue-color text-xl fa-solid fa-circle-chevron-down'></i>
       </div>
       <div
         className={`${
