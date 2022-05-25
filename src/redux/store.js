@@ -4,6 +4,7 @@ import CategoryReducer from "./CategoryReducer";
 import ProductReducer from "./ProductReducer";
 import SideBarReducer from "./SideBarReducer";
 import StaffReducer from "./StaffReducer";
+import StatisticReducer from "./StatisticReducer";
 import UserReducer from "./UserReducer";
 
 const store = configureStore({
@@ -14,6 +15,7 @@ const store = configureStore({
     product: ProductReducer,
     category: CategoryReducer,
     staff: StaffReducer,
+    statistic: StatisticReducer,
   },
 });
 

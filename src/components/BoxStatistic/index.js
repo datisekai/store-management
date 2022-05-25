@@ -19,9 +19,9 @@ const BoxStatistic = ({ statistic }) => {
           </p>
         </div>
       </div>
-      <p className='text-center'>
+      {/* <p className='text-center'>
         (Tăng {statistic.percent}% số hàng đã xuất so với tháng trước)
-      </p>
+      </p> */}
     </div>
   );
 };

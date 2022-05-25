@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getCategory } from "../../redux/CategoryReducer";
 import { getAllProduct } from "../../redux/ProductReducer";
+import { getAllStaff } from "../../redux/StaffReducer";
 import ModalAddCategory from "../Category/ModalAddCategory";
 import ModalAddProduct from "../Product/ModalAddProduct";
 import ModalAddStaff from "../Staff/ModalAddStaff";
@@ -19,13 +20,17 @@ const ContentHandle = ({ label, type, clear }) => {
     switch (type) {
       case 1:
         dispatch(getCategory());
-        clear();
+        break;
+      case 2:
+        dispatch(getAllProduct());
+        break;
+      case 3:
+        dispatch(getAllStaff());
         break;
       default:
-        dispatch(getAllProduct());
-        clear();
         break;
     }
+    clear();
   };
 
   return (

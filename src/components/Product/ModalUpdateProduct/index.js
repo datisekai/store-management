@@ -51,7 +51,7 @@ const ModalUpdateProduct = ({ open, handleClose }) => {
 
   useEffect(() => {
     setNewCategories(currentProduct.categories || []);
-    formik.values.status = currentProduct.status == 1 ? true : false;
+    formik.values.status = currentProduct.status != 0 ? true : false;
     formik.values.name = currentProduct.name;
     formik.values.price = +currentProduct.price;
     setImage(currentProduct.image);

@@ -76,7 +76,7 @@ const TableProduct = ({ products, page }) => {
               </td>
 
               <td className='font-normal border-l  py-1 px-1 border-r'>
-                {item.status == 1 ? "Đang bán" : "Ngừng bán"}
+                {item.status != 0 ? "Đang bán" : "Ngừng bán"}
               </td>
               <td className='font-normal   text-white border-r py-1 px-1 flex flex-col items-center px-2'>
                 <button

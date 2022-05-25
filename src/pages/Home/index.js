@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import BoxStatistic from "../../components/BoxStatistic";
 import {
   Chart as ChartJS,
@@ -12,6 +12,8 @@ import {
 } from "chart.js";
 import { Bar, Pie } from "react-chartjs-2";
 import { scrollTop } from "../../utils/ScrollTop";
+import { useDispatch, useSelector } from "react-redux";
+import { getHome } from "../../redux/StatisticReducer";
 
 ChartJS.register(
   CategoryScale,
@@ -23,30 +25,70 @@ ChartJS.register(
   ArcElement
 );
 
-const statistics = [
-  {
-    label: "Số hàng đã xuất",
-    image: "export.png",
-    quantity: 10,
-    percent: 5,
-  },
-  {
-    label: "Số hàng đã nhập",
-    image: "import.png",
-    quantity: 15,
-    percent: 12,
-  },
-  {
-    label: "Thu nhập",
-    image: "benefit.png",
-    quantity: 1500000,
-    percent: 50,
-  },
-];
+// const statistics = [
+//   {
+//     label: "Số hàng đã xuất",
+//     image: "export.png",
+//     quantity: 10,
+//     percent: 5,
+//   },
+//   {
+//     label: "Số hàng đã nhập",
+//     image: "import.png",
+//     quantity: 15,
+//     percent: 12,
+//   },
+//   {
+//     label: "Thu nhập",
+//     image: "benefit.png",
+//     quantity: 1500000,
+//     percent: 50,
+//   },
+// ];
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { home } = useSelector((state) => state.statistic);
+  const [statistics, setStatistics] = useState([
+    {
+      label: "Số danh mục",
+      image: "export.png",
+      quantity: 10,
+    },
+    {
+      label: "Số sản phẩm",
+      image: "import.png",
+      quantity: 15,
+    },
+    {
+      label: "Số người dùng",
+      image: "benefit.png",
+      quantity: 1500000,
+    },
+  ]);
   useEffect(() => {
     scrollTop();
+  }, []);
+
+  useEffect(() => {
+    setStatistics(
+      statistics.map((item, index) => {
+        if (index === 0) {
+          return { ...item, quantity: home.category };
+        }
+        if (index === 1) {
+          return { ...item, quantity: home.product };
+        }
+        if (index == 2) {
+          return { ...item, quantity: home.staff };
+        }
+        return item;
+      })
+    );
+  }, [home]);
+
+  useEffect(() => {
+    dispatch(getHome());
   }, []);
   const options = {
     responsive: true,

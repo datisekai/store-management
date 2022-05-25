@@ -53,6 +53,16 @@ export const updateStaff = createAsyncThunk(
   }
 );
 
+export const filterName = createAsyncThunk(
+  "staff/filterName",
+  async ({ query, page }) => {
+    const res = await axiosClient.get(
+      `/users?q=${query}&_limit=4&_page=${page || 1}`
+    );
+    return { staffs: res.data, total: res.headers["x-total-count"] };
+  }
+);
+
 const StaffSlice = createSlice({
   name: "staff",
   initialState: {
@@ -128,6 +138,21 @@ const StaffSlice = createSlice({
         swal("Thêm thành công");
       }
       state.loading = false;
+    });
+
+    builder.addCase(filterName.pending, (state) => {
+      state.loading = true;
+    });
+
+    builder.addCase(filterName.fulfilled, (state, action) => {
+      state.loading = false;
+      state.staffs = action.payload.staffs;
+      state.total = +action.payload.total;
+    });
+
+    builder.addCase(filterName.rejected, (state) => {
+      state.loading = false;
+      swal("Tìm kiếm thất bại");
     });
   },
 });
