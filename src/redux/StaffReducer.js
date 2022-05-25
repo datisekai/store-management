@@ -20,7 +20,6 @@ export const getStaffById = createAsyncThunk(
 
 export const addStaff = createAsyncThunk("staff/addStaff", async (staff) => {
   const checkExist = await axiosClient.get(`/users?email=${staff.email}`);
-  console.log(checkExist);
   if (checkExist.data.length > 0) {
     swal("Email is already");
     return null;
